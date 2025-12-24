@@ -16,20 +16,5 @@ namespace ShoesStore_LB42_main
         {
             InitializeComponent();
         }
-
-        private void Products_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label25_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
