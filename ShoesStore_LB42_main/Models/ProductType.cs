@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ShoesStore_LB42_main.Models;
+﻿namespace ShoesStore_LB42_main.Models;
 
 public partial class ProductType
 {
