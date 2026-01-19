@@ -37,6 +37,6 @@ namespace ShoesStore_LB42_main
                     }
                 }
             }
-        }
-    }
+		}
+	}
 }
