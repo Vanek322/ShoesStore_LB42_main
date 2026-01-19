@@ -49,7 +49,7 @@ namespace ShoesStore_LB42_main
             {
                 using (var db = new ShopDbContext())
                 {
-                    var products = db.Products
+                    var products = db.Product
                         .Include(i => i.Category)
                         .Include(i => i.Manufacturer)
                         .Include(i => i.Supplier)

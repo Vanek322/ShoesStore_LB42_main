@@ -23,7 +23,7 @@ public partial class ShopDbContext : DbContext
 
     public virtual DbSet<Order> Orders { get; set; }
 
-    public virtual DbSet<Product> Products { get; set; }
+    public virtual DbSet<Product> Product { get; set; }
 
     public virtual DbSet<ProductType> ProductTypes { get; set; }
 
