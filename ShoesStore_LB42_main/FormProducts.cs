@@ -24,7 +24,7 @@ namespace ShoesStore_LB42_main
             colInfo.FillWeight = 60;
             colInfo.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            var colDiscount = new DataGridViewImageColumn();
+            var colDiscount = new DataGridViewTextBoxColumn();
             colDiscount.Name = "colDiscount";
             colDiscount.FillWeight = 10;
             colDiscount.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -54,6 +54,7 @@ namespace ShoesStore_LB42_main
                         .Include(i => i.Manufacturer)
                         .Include(i => i.Supplier)
                         .Include(i => i.Measure)
+                        .Include(i => i.ProductType)
                         .ToList();
 
                     dgvProducts.SuspendLayout();
@@ -90,13 +91,9 @@ namespace ShoesStore_LB42_main
                 row.DefaultCellStyle.ForeColor = Color.White;
             }
 
-            if (product.CointInStock <= 0)
+            if (product.Discount <= 15)
             {
-                row.DefaultCellStyle.ForeColor = Color.LightBlue;
-                if (product.Discount <= 15)
-                {
-                    row.DefaultCellStyle.ForeColor = Color.Black;
-                }
+                row.DefaultCellStyle.ForeColor = Color.Black;
             }
 
             if (product.Discount > 0)
@@ -106,6 +103,11 @@ namespace ShoesStore_LB42_main
                     "Times New Roman",
                     12,
                     FontStyle.Bold);
+            }
+            if (product.CointInStock <= 0)
+            {
+                row.DefaultCellStyle.ForeColor = Color.LightBlue;
+                
             }
         }
 
