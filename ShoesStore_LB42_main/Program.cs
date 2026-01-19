@@ -8,6 +8,7 @@ namespace ShoesStore_LB42_main
         [STAThread]
         static void Main()
         {
+            ApplicationConfiguration.Initialize();
             bool exitProgram = false;
 
             while(!exitProgram)
@@ -36,9 +37,6 @@ namespace ShoesStore_LB42_main
                     }
                 }
             }
-
-            ApplicationConfiguration.Initialize();
-            Application.Run(new FormLogin());
         }
     }
 }
