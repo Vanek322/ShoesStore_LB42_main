@@ -1,6 +1,6 @@
 ﻿namespace ShoesStore_LB42_main
 {
-    partial class FormOrders
+    partial class FormMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -33,26 +33,31 @@
             lblUserName = new Label();
             btnLogout = new Button();
             dgvOrders = new DataGridView();
+            btnShowProducts = new Button();
+            btnShowOrders = new Button();
             panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvOrders).BeginInit();
             SuspendLayout();
             // 
             // panelTop
             // 
+            panelTop.BackColor = Color.White;
             panelTop.Controls.Add(lblUserName);
             panelTop.Controls.Add(btnLogout);
             panelTop.Dock = DockStyle.Top;
-            panelTop.Location = new Point(10, 10);
+            panelTop.Location = new Point(0, 0);
+            panelTop.Margin = new Padding(4);
             panelTop.Name = "panelTop";
-            panelTop.Padding = new Padding(0, 0, 0, 10);
-            panelTop.Size = new Size(964, 40);
-            panelTop.TabIndex = 2;
+            panelTop.Padding = new Padding(4);
+            panelTop.Size = new Size(684, 51);
+            panelTop.TabIndex = 5;
             // 
             // lblUserName
             // 
             lblUserName.AutoSize = true;
             lblUserName.Dock = DockStyle.Right;
-            lblUserName.Location = new Point(752, 0);
+            lblUserName.Location = new Point(420, 4);
+            lblUserName.Margin = new Padding(0);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(45, 19);
             lblUserName.TabIndex = 6;
@@ -65,9 +70,10 @@
             btnLogout.Dock = DockStyle.Right;
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Location = new Point(797, 0);
+            btnLogout.Location = new Point(465, 4);
+            btnLogout.Margin = new Padding(4);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(167, 30);
+            btnLogout.Size = new Size(215, 43);
             btnLogout.TabIndex = 5;
             btnLogout.Text = "Выход";
             btnLogout.UseVisualStyleBackColor = false;
@@ -92,30 +98,54 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvOrders.DefaultCellStyle = dataGridViewCellStyle1;
             dgvOrders.Dock = DockStyle.Fill;
-            dgvOrders.Location = new Point(10, 50);
+            dgvOrders.Location = new Point(0, 51);
+            dgvOrders.Margin = new Padding(4);
             dgvOrders.MultiSelect = false;
             dgvOrders.Name = "dgvOrders";
             dgvOrders.ReadOnly = true;
             dgvOrders.RowHeadersVisible = false;
             dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvOrders.Size = new Size(964, 601);
-            dgvOrders.TabIndex = 4;
+            dgvOrders.Size = new Size(684, 310);
+            dgvOrders.TabIndex = 7;
             // 
-            // FormOrders
+            // btnShowProducts
+            // 
+            btnShowProducts.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnShowProducts.Location = new Point(188, 135);
+            btnShowProducts.Name = "btnShowProducts";
+            btnShowProducts.Size = new Size(307, 50);
+            btnShowProducts.TabIndex = 10;
+            btnShowProducts.Text = "Список товаров";
+            btnShowProducts.UseVisualStyleBackColor = true;
+            btnShowProducts.Click += btnShowProducts_Click;
+            // 
+            // btnShowOrders
+            // 
+            btnShowOrders.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnShowOrders.Location = new Point(188, 215);
+            btnShowOrders.Name = "btnShowOrders";
+            btnShowOrders.Size = new Size(307, 50);
+            btnShowOrders.TabIndex = 11;
+            btnShowOrders.Text = "Список заказов";
+            btnShowOrders.UseVisualStyleBackColor = true;
+            btnShowOrders.Click += btnShowOrders_Click;
+            // 
+            // FormMenu
             // 
             AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(984, 661);
+            ClientSize = new Size(684, 361);
+            Controls.Add(btnShowOrders);
+            Controls.Add(btnShowProducts);
             Controls.Add(dgvOrders);
             Controls.Add(panelTop);
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4);
-            Name = "FormOrders";
-            Padding = new Padding(10);
+            Name = "FormMenu";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Список заказов";
+            Text = "Меню";
             panelTop.ResumeLayout(false);
             panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvOrders).EndInit();
@@ -128,5 +158,8 @@
         private Label lblUserName;
         private Button btnLogout;
         private DataGridView dgvOrders;
+        private Button btn;
+        private Button btnShowProducts;
+        private Button btnShowOrders;
     }
 }

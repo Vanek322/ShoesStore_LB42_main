@@ -53,6 +53,7 @@ namespace ShoesStore_LB42_main
                     var orders = db.Orders
                        .Include(i => i.Status)
                        .Include(i => i.DeliveryPoint)
+                       .OrderBy(i => i.Id)
                        .ToList();
 
                     dgvOrders.SuspendLayout();
@@ -79,34 +80,6 @@ namespace ShoesStore_LB42_main
             }
         }
 
-        //private void ApplyRowStyles(DataGridViewRow row, Product product)
-        //{
-        //    if (product.Discount > 15)
-        //    {
-        //        row.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#2E8B57");
-        //        row.DefaultCellStyle.ForeColor = Color.White;
-        //    }
-
-        //    if (product.Discount <= 15)
-        //    {
-        //        row.DefaultCellStyle.ForeColor = Color.Black;
-        //    }
-
-        //    if (product.Discount > 0)
-        //    {
-        //        row.Cells["colDiscount"].Style.ForeColor = Color.Red;
-        //        row.Cells["colDiscount"].Style.Font = new Font(
-        //            "Times New Roman",
-        //            12,
-        //            FontStyle.Bold);
-        //    }
-        //    if (product.CointInStock <= 0)
-        //    {
-        //        row.DefaultCellStyle.ForeColor = Color.LightBlue;
-
-        //    }
-        //}
-
         private string FormatOrderInfo(Order order)
         {
             return $"Артикул: {order.Id}" + Environment.NewLine +
@@ -115,25 +88,15 @@ namespace ShoesStore_LB42_main
                 $"Дата заказа: {order.OrderDate}";
         }
 
-        //private Image LoadProductImage(string photoUrl)
-        //{
-        //    if (!String.IsNullOrEmpty(photoUrl) && System.IO.File.Exists(photoUrl))
-        //    {
-        //        return Image.FromFile(photoUrl);
-        //    }
-
-        //    return Resources.picture;
-        //}
-
-        private void BtnLogout_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

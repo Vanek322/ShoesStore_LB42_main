@@ -17,11 +17,11 @@ namespace ShoesStore_LB42_main
                 {
                     if (formLogin.ShowDialog() == DialogResult.OK)
                     {
-                        using (var FormOrders = new FormOrders(
+                        using (var FormMenu = new FormMenu(
                             formLogin.CurrentUser,
                             formLogin.IsGuest))
                         {
-                            if (FormOrders.ShowDialog() == DialogResult.Cancel)
+                            if (FormMenu.ShowDialog() == DialogResult.Cancel)
                             {
                                 continue;
                             }
