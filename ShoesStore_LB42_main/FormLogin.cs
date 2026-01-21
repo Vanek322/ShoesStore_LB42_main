@@ -1,3 +1,4 @@
+п»їusing Microsoft.EntityFrameworkCore;
 using ShoesStore_LB42_main.Models;
 
 namespace ShoesStore_LB42_main
@@ -6,6 +7,7 @@ namespace ShoesStore_LB42_main
     {
         public User? CurrentUser { get; private set; }
         public Boolean IsGuest { get; private set; }
+        public Role UserRole { get; private set; }
 
         public FormLogin()
         {
@@ -16,26 +18,27 @@ namespace ShoesStore_LB42_main
         {
             if (String.IsNullOrWhiteSpace(txtLogin.Text) || String.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                MessageBox.Show("Введите логин и пароль", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ Рё РїР°СЂРѕР»СЊ", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             using (var db = new ShopDbContext())
             {
                 var user = db.Users
-                    .Where(w => w.Login == txtLogin.Text && w.Pass == txtPassword.Text)
-                    .FirstOrDefault();
+                    .Include(u => u.Role) // в†ђ Р­РўРћ РћР‘РЇР—РђРўР•Р›Р¬РќРћ
+                    .FirstOrDefault(u => u.Login == txtLogin.Text && u.Pass == txtPassword.Text);
 
                 if (user != null)
                 {
                     CurrentUser = user;
                     IsGuest = false;
+                    UserRole = user.Role; // РўРµРїРµСЂСЊ Role С‚РѕС‡РЅРѕ РЅРµ null (РµСЃР»Рё РІ Р‘Р” РµСЃС‚СЊ Р·Р°РїРёСЃСЊ)
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Неверный логин или пароль", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("РќРµРІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

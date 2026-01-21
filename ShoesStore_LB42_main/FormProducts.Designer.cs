@@ -100,6 +100,7 @@
             dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProducts.Size = new Size(964, 601);
             dgvProducts.TabIndex = 1;
+            dgvProducts.CellPainting += dgvProducts_CellPainting;
             // 
             // FormProducts
             // 

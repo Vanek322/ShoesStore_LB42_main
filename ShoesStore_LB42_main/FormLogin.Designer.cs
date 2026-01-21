@@ -98,6 +98,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(220, 29);
             txtPassword.TabIndex = 3;
+            txtPassword.Text = "uzWC67";
             // 
             // lbPassword
             // 
@@ -114,6 +115,7 @@
             txtLogin.Name = "txtLogin";
             txtLogin.Size = new Size(220, 29);
             txtLogin.TabIndex = 1;
+            txtLogin.Text = "94d5ous@gmail.com";
             // 
             // lbLogin
             // 
@@ -124,7 +126,7 @@
             lbLogin.TabIndex = 0;
             lbLogin.Text = "Логин";
             // 
-            // Authorization
+            // FormLogin
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -137,7 +139,7 @@
             Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "Authorization";
+            Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Магазин обуви - Авторизация";
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();

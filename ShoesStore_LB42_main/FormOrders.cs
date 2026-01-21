@@ -1,13 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShoesStore_LB42_main.Models;
-using ShoesStore_LB42_main.Properties;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace ShoesStore_LB42_main
 {
@@ -56,7 +49,6 @@ namespace ShoesStore_LB42_main
                        .OrderBy(i => i.Id)
                        .ToList();
 
-                    dgvOrders.SuspendLayout();
                     dgvOrders.Rows.Clear();
 
                     foreach (var order in orders)
@@ -65,11 +57,8 @@ namespace ShoesStore_LB42_main
                         var row = dgvOrders.Rows[rowIndex];
 
                         row.Cells["colInfo"].Value = FormatOrderInfo(order);
-
                         row.Cells["colDeliveryDate"].Value = $"{order.DeliveryDate}";
                         row.Cells["colDeliveryDate"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-                        //ApplyRowStyles(row, product);
                     }
                 }
             }
@@ -92,7 +81,6 @@ namespace ShoesStore_LB42_main
         {
             base.OnFormClosing(e);
         }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

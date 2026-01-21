@@ -1,27 +1,29 @@
 ﻿using ShoesStore_LB42_main.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace ShoesStore_LB42_main
 {
     public partial class FormMenu : Form
     {
-        public User CurrentUser { get; private set; }
+        public User? CurrentUser { get; private set; }
         public bool IsGuest { get; private set; }
+        public Role UserRole { get; private set; }
 
-        public FormMenu(User user, bool guest)
+        public FormMenu(User user, bool guest, Role userRole)
         {
             InitializeComponent();
 
             CurrentUser = user;
             IsGuest = guest;
+            UserRole = userRole;
 
-            lblUserName.Text = IsGuest ? "Гость" : CurrentUser.FullName;
+            if (!IsGuest)
+            {
+                lblUserName.Text = $"{CurrentUser.FullName} - {UserRole.RoleName}";
+            }
+            else
+            {
+                lblUserName.Text = "Гость";
+            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

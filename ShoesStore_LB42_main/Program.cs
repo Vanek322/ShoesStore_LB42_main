@@ -19,7 +19,8 @@ namespace ShoesStore_LB42_main
                     {
                         using (var FormMenu = new FormMenu(
                             formLogin.CurrentUser,
-                            formLogin.IsGuest))
+                            formLogin.IsGuest,
+                            formLogin.UserRole))
                         {
                             if (FormMenu.ShowDialog() == DialogResult.Cancel)
                             {
